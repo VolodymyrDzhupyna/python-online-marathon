@@ -1,32 +1,5 @@
-# Створити функцію create_account(ім'я_користувача: string, пароль: string, секретні_слова: list). 
-# Ця функція повинна повертати внутрішню перевірку функції.
-# Функція check порівнює значення своїх аргументів з паролем та секретними словами: 
-# пароль повинен співпадати повністю, секретні слова можуть бути написані з помилкою (лише один елемент).
-# Пароль повинен містити не менше 6 символів, включаючи одну велику літеру, 
-# одну малу літеру, спеціальний символ і одну цифру.
-# В іншому випадку функція create_account видасть помилку ValueError. 
-
-# For example: 
-
-# tom = create_account("Tom", "Qwerty1", ["1", "word"]) raises Value error 
-
-# If tom = create_account("Tom", "Qwerty1_", ["1", "word"])  
-
-# then 
-
-# tom("Qwerty1_",  ["1", "word"]) return True 
-
-# tom("Qwerty1_",  ["word"]) return False due to different length of   ["1", "word"] and  ["word"]
-
-# tom("Qwerty1_",  ["word", "12"]) return True
-
-# tom("Qwerty1!",  ["word", "1"]) return False because "Qwerty1!" not equals to "Qwerty1_"
-
-# ["abc3", "abc3", "abc3"](check) and ["word1", "abc3", "list"](create_account) --> False
-# ["abc3", "word1", "zzzzzz"](check) and ["word1", "abc3", "list"](create_account) --> True
-# ["word1", "zzzz", "z"](check) and ["word1", "abc3", "list"](create_account)
-
 import re
+
 
 def create_account(user_name, password, secret_words):
     result = re.match("^.*(?=.{6,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&!_*+=]).*$", password)

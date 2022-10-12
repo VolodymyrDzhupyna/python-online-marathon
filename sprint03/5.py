@@ -1,31 +1,6 @@
-# Створити декоратор logger. Декоратор повинен виводити на консоль інформацію
-# про ім'я функції та всі її аргументи, відокремлені символом ',' для функції, задекорованої logger.
-
-# Створити функцію concat з довільною кількістю довільних аргументів, яка об'єднує аргументи, 
-# та застосувати для цієї функції декоратор logger.
-
-# For example
-
-# print(concat(2, 3)) display
-# Executing of function concat with arguments 2, 3...
-# 23
-
-# print(concat('hello', 2)) display
-# Executing of function concat with arguments hello, 2...
-# hello2
-
-# print(concat (first = 'one', second = 'two')) display
-# Executing of function concat with arguments one, two...
-# onetwo
-
-# Вкінці три крапки пропустили
-# Executing of function concat with arguments 0, second kwarg...
-# {тут вивід функції, яка обгортається} 
-# Приклад з тесту.
-
-def logger(func): # виводить в консоль інформацію
+def logger(func):
     def inner(*args, **kwargs):
-        result = func(*args, **kwargs) # змінна на функцію concat
+        result = func(*args, **kwargs)
         args_generator = ", ".join(list((str(item) for item in args)))
         kwargs_generator = ", ".join(list(str(item) for item in kwargs.values()))
         value_args_kwargs = ", ".join(list((str(item) for item in args))
