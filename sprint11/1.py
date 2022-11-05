@@ -29,7 +29,7 @@ session = Session()
 
 query = session.query(Customer).filter(Customer.grade > 200).order_by(Customer.id)
 clients = query.all()
-number_records = len(clients)
+number_records = query.count()
 
 def get_info():
     print("Connected to SQLite")
