@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book home</title>
+</head>
+<body>
+    <h1>Book home page</h1>
+    <a href="/">Home</a>
+
+    {% if user.role == 0 %}
+        <p><a href="{% url 'book:all' %}">See information about all books</a></p>
+
+    {% else %}
+    <ul>
+        <li><a href="{% url 'book:all' %}">See information about all books</a></li>
+        <li><a href="{% url 'book:add' %}">Add book</a></li>
+        <li><a href="{% url 'authentication:one' %}">See books ordered by a user</a></li>
+    </ul>
+
+    {% endif %}
+
+
+
+</body>
+</html>

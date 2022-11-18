@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Authentication template</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<body>
+<h2>Welcome to Users home page.</h2>
+  <ol>You can
+    <li><a href="{% url 'authentication:all' %}">See information about all users</a></li>
+    <li><a href="{% url 'authentication:one' %}">See information about specific users</a></li>
+  </ol>
+  <a href="/">Home</a>
+</body>
+</html>

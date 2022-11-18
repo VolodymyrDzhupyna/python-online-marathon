@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>All users</h1>
+    <a href="/">Home</a>
+    <a href="/authentication/home">Authentication home</a>
+    <h2>Count of users: {{ users.count }}</h2>
+
+    <ol>
+    {% for a in users %}
+        <li>
+            {{ a.id }} {{ a.first_name }} {{ a.middle_name }} {{ a.last_name }}, email: {{a.email}}
+        </li>
+    {% endfor %}
+    </ol>
+
+</body>
+</html>

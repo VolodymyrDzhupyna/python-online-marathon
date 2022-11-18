@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add orders</title>
+</head>
+<body>
+
+    {% if user.role == 0 %}
+    <h1>Welcome {{ user.name }} to your orders page </h1>
+    <a href="/">Home</a>
+    <a href="{% url 'order:user_orders' user.id %}">See my orders</a>
+    <a href="add">Add order</a>
+    {% else %}
+    <h1>Welcome to Orders page</h1>
+    <a href="/">Home</a>
+    <p><a href="all">See all orders</a></p>
+
+    {% endif %}
+</body>
+</html>

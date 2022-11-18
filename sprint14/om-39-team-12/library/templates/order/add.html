@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <h1>Add your order</h1>
+    <a href="/">Home</a>
+    <a href="{% url 'order:all' %}">Back to my orders</a>
+    <p>choose from all available books</p> <a href="/book/available">choose</a>
+
+    {% if order %}
+        <p>U successfully made an order of {{ order.book }}.</p>
+        <p>Note that u have to return the book due to {{ order.plated_end_at }}</p>
+    {% endif %}
+</body>
+</html>
