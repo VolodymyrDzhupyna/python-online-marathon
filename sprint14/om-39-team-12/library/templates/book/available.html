@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>available books</h1>
+    <a href="/">Home</a>
+    <a href="{% url 'book:home' %}">Book Home</a>
+    <a href="{% url 'order:home' %}">Back to Order home</a>
+    <ol>
+        {% for book in books %}
+            <li>{{ book.name }} by {{ book.authors }} <small><a href="{% url 'order:add_chosen' book.id %}">order</a></small></li>
+        {% endfor %}
+    </ol>
+
+</body>
+</html>

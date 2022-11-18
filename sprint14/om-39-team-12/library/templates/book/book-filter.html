@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>List of all books</h1>
+<a href="/">Home</a>
+<a href="{% url 'book:home' %}">Book Home</a>
+<a href="{% url 'book:all' %}">Back to all</a>
+    {% if user_input %}
+        <p>Searching by {{filter_type}}: {{ user_input.value }}</p>
+    {% endif %}
+    <ol> Results:
+        {% for book in books %}
+            <li>{{ book.name }} <small><a href="{% url 'book:one-book' book.id %}">see</a></small></li>
+        {% endfor %}
+    </ol>
+
+</body>
+</html>
