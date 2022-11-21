@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>add author</h1>
+    <p><a href="{% url 'author:home' %}">Back to Authors homepage</a></p>
+    {% if author %}
+
+    <p>Successfully added an author: {{ author.name }}</p>
+    <a href="{% url 'author:home' %}">Back to Authors homepage</a>
+
+    {% else %}
+    <form method="post">
+        {% csrf_token %}
+        <input id="name" name="name" type="text" placeholder="name">
+        <input id="surname" name="surname" type="text" placeholder="surname">
+        <input id="patronymic" name="patronymic" type="text" placeholder="patronymic">
+        <button type='submit'>Create</button>
+    </form>
+    {% endif %}
+</body>
+</html>

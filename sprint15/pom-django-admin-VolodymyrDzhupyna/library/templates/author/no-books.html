@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Authors without books</h1>
+    <a href="/">Home</a>
+    <a href="{% url 'author:home' %}">Authors homepage</a>
+    <a href="{% url 'author:all' %}">Back to all authors</a>
+    {% if has_empty_authors %}
+        <p>Authors without books: {{ no_books_count }}</p>
+        <ol>
+        {% for a in authors %}
+            <li>
+                {{a.fullname}} - <small><a href="{% url 'author:del' a.id %}">Delete</a></small>
+            </li>
+        {% endfor %}
+        </ol>
+    {% else %}
+        <p>No authors without books</p>
+        <p>{{ author }}</p>
+    {% endif %}
+</body>
+</html>
