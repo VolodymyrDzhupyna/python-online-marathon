@@ -1,0 +1,15 @@
+{% extends "base/base.html" %}
+
+{% block meta_title %}Add author{% endblock meta_title %}
+
+{% block title %}Create a new author{% endblock title %}
+
+{% block content %}
+    <main class="my-3">
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button class="btn btn-primary" type="submit">Create Author</button>
+        </form>
+    </main>
+{% endblock content %}
