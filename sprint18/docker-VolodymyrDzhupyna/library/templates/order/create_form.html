@@ -1,0 +1,31 @@
+{% extends "base/base.html" %}
+
+{% block meta_title %}New Order{% endblock meta_title %}
+
+{% block title %}Create a new order{% endblock title %}
+
+{% block content %}
+<main class="my-3">
+    <form action="" method="POST">
+        {% csrf_token %}
+        {% comment %} <div class="mb-3">
+            <label for="bookInput" class="form-label">Select a book: </label>
+            <select name="bookInput" id="bookInput" class="form-select">
+                {% for book in books %}
+                <option value="{{book.id}}">{{book.name}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="timeInput" class="form-label">How long do you want this book for?</label>
+            <select name="timeInput" id="timeInput" class="form-select">
+                <option value="7">1 week</option>
+                <option value="10">10 days</option>
+                <option value="14">2 weeks</option>
+            </select>
+        </div> {% endcomment %}
+        {{form.as_p}}
+            <button type="submit" class="btn btn-primary">Create order</button>
+    </form>
+</main>
+{% endblock content %}
